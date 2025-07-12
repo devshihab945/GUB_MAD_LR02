@@ -1,4 +1,4 @@
-package com.shihab.lab_report_1;
+package com.shihab.lab_report_2;
 
 import static android.view.View.VISIBLE;
 
@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Objects;
 
 public class TemperatureActivity extends AppCompatActivity {
 
@@ -33,19 +35,18 @@ public class TemperatureActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         btnConvertFTOC = findViewById(R.id.btnConvertFTOC);
 
-        btnBack.setOnClickListener(view -> {
-            finish();
-        });
+        btnBack.setOnClickListener(view -> finish());
 
         btnConvert.setOnClickListener(view -> {
 
-            degree = tidCelcius.getText().toString();
+            degree = Objects.requireNonNull(tidCelcius.getText()).toString();
 
             if (!degree.isEmpty()) {
                 double temp = Double.parseDouble(degree);
                 resultFahrenheit = (temp * 1.8) + 32;
 
                 tvResult.setVisibility(VISIBLE);
+                tvResult.setTextColor(getResources().getColor(R.color.orange, null));
                 tvResult.setText("Result: " + resultFahrenheit + "F");
                 Toast.makeText(this, "Convert Successful!", Toast.LENGTH_SHORT).show();
             }
@@ -60,6 +61,7 @@ public class TemperatureActivity extends AppCompatActivity {
                 double result = (resultFahrenheit - 32) / 1.8;
 
                 tvResult.setVisibility(View.VISIBLE);
+                tvResult.setTextColor(getResources().getColor(R.color.colorPrimary, null));
                 tvResult.setText("Result: " + result + "°C");
                 Toast.makeText(this, "Conversion Successful!", Toast.LENGTH_SHORT).show();
 

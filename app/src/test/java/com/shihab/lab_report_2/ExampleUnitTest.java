@@ -1,4 +1,4 @@
-package com.shihab.lab_report_1;
+package com.shihab.lab_report_2;
 
 import org.junit.Test;
 

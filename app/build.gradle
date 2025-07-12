@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.shihab.lab_report_1'
+    namespace 'com.shihab.lab_report_2'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.shihab.lab_report_1"
+        applicationId "com.shihab.lab_report_2"
         minSdk 24
         targetSdk 36
         versionCode 1
